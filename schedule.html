@@ -18,12 +18,12 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <main>
-    <h1>CHECK YOUR QUEST LOG</h1>
-    <p>Enter your name to reveal available quests:</p>
+    <h1>QUEST BOARD</h1>
+    <p>REGISTER YOUR NAME AND PUSH START BUTTON:</p>
 
     <input type="text" id="guestName" placeholder="Your Name" />
     <br />
-    <button onclick="checkSchedule()">View Schedule</button>
+    <button onclick="checkSchedule()">Start</button>
     <div id="error" class="error hidden">Name not found. Try again.</div>
 
     <div id="templeWedding" class="event hidden">
@@ -56,5 +56,9 @@
     </div>
   </main>
   <script src="schedule.js"></script>
+
+  <footer>
+    · Akshay & Abigail's Wedding ·
+  </footer>
 </body>
 </html>

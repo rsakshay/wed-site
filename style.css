@@ -64,6 +64,10 @@ p {
   color: #ccc;
 }
 
+p a {
+  color: var(--main-highlight);
+}
+
 .keyword {
   color: var(--main-highlight);
 }
