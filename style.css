@@ -1,0 +1,120 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  background-color: #1d1d1d;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+nav {
+  background-color: #111;
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  border-bottom: 2px solid #444;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+nav a.active {
+  color: #ffcc00;
+}
+
+main {
+  padding: 2rem;
+  max-width: 700px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffcc00;
+}
+
+p {
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+.gif-container {
+  margin: 2rem 0;
+}
+
+.gif-container img {
+  width: 100%;
+  max-width: 600px;
+  image-rendering: pixelated;
+  background-color: #1b0f0b; /* matches the body background */
+  border: none;
+}
+
+footer {
+  margin-top: 4rem;
+  font-size: 0.6rem;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+.event {
+  margin-top: 3rem;
+  text-align: left;
+  background-color: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.event img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.event a {
+  color: #00ccff;
+  text-decoration: underline;
+}
+
+input[type="text"], button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  margin-top: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+button {
+  padding: 0.6rem 1rem;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 0.6rem;
+  margin-top: 1rem;
+}

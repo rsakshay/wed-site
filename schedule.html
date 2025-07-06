@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/schedule.html" class="active">Schedule</a>
+    <a href="https://withjoy.com/akshay-and-abigail/rsvp" target="_blank">RSVP</a>
+    <a href="https://withjoy.com/akshay-and-abigail/registry" target="_blank">Registry</a>
+  </nav>
+
+  <main>
+    <h1>CHECK YOUR QUEST LOG</h1>
+    <p>Enter your name to reveal available quests:</p>
+
+    <input type="text" id="guestName" placeholder="Your Name" />
+    <br />
+    <button onclick="checkSchedule()">View Schedule</button>
+    <div id="error" class="error hidden">Name not found. Try again.</div>
+
+    <div id="templeWedding" class="event hidden">
+      <h2>TEMPLE WEDDING</h2>
+      <p><strong>Date:</strong> Sept 20, 2025 @ 10:00 AM</p>
+      <p><strong>Location:</strong> The Grand Temple of Light <br />
+        <a href="https://www.google.com/maps/place/The+Grand+Temple+of+Light" target="_blank">View on Google Maps</a>
+      </p>
+      <img src="temple.jpg" alt="Temple Wedding Location" />
+      <p><strong>Dress Code:</strong> Formal or traditional</p>
+      <p><strong>Travel Info:</strong> Parking available; carpool recommended.</p>
+    </div>
+
+    <div id="chapelWedding" class="event hidden">
+      <h2>CHAPEL WEDDING</h2>
+      <p><strong>Date:</strong> Sept 22, 2025 @ 5:00 PM</p>
+      <p><strong>Location:</strong> Hyrule Garden Chapel <br />
+        <a href="https://www.google.com/maps/place/Hyrule+Garden+Chapel" target="_blank">View on Google Maps</a>
+      </p>
+      <img src="chapel.jpg" alt="Chapel Wedding Location" />
+      <p><strong>Dress Code:</strong> Cocktail / semi-formal</p>
+      <p><strong>Travel Info:</strong> Free valet and rideshare drop-off.</p>
+    </div>
+  </main>
+  <script src="schedule.js"></script>
+</body>
+</html>
