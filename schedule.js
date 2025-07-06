@@ -1,39 +1,10 @@
-let guestList = {};
-
-function buildGuestListFromCSV(csv) {
-  const lines = csv.trim().split("\n");
-  const headers = lines[0].split(",").map(h => h.trim().replace(/^"|"$/g, ""));
-  const list = {};
-
-  for (let i = 1; i < lines.length; i++) {
-    const row = lines[i].split(",").map(cell => cell.trim().replace(/^"|"$/g, ""));
-    const data = Object.fromEntries(headers.map((key, idx) => [key, row[idx] || ""]));
-
-    const fullName = `${data["First Name"]} ${data["Last Name"]}`.toLowerCase();
-    const tags = data["Tags (Optional)"]
-      ? data["Tags (Optional)"].split("|").map(t => t.trim().toLowerCase())
-      : [];
-
-    list[fullName] = tags;
-  }
-
-  return list;
-}
+const supabase = window.supabase.createClient(
+  "https://epsmnexwxcismleuqweu.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVwc21uZXh3eGNpc21sZXVxd2V1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE3ODg4NjUsImV4cCI6MjA2NzM2NDg2NX0.ttQr9tXCC6xNtqUjW0zQ4xJQW6UE62ejmm7eDI5nwxw" // anon public key
+);
 
 // Load the guest list from CSV when page loads
 window.addEventListener("DOMContentLoaded", () => {
-  fetch("guestlist.csv")
-    .then((res) => res.text())
-    .then((csvText) => {
-      guestList = buildGuestListFromCSV(csvText);
-      console.log("Guest list loaded:", guestList);
-    })
-    .catch((err) => {
-      console.error("Failed to load guest list:", err);
-      document.getElementById("error").textContent = "Error loading guest list.";
-      document.getElementById("error").classList.remove("hidden");
-    });
-
   // 🎯 Add Enter key listener here
   const input = document.getElementById("guestName");
   input.addEventListener("keydown", function (e) {
@@ -44,25 +15,41 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function checkSchedule() {
-  const name = document.getElementById("guestName").value.trim().toLowerCase();
-  const events = guestList[name];
+async function checkSchedule() {
+  const nameInput = document.getElementById("guestName");
+  const fullName = nameInput.value.trim().toLowerCase();
 
   document.getElementById("error").classList.add("hidden");
   document.getElementById("templeWedding").classList.add("hidden");
   document.getElementById("chapelWedding").classList.add("hidden");
 
-  if (!events || events.length === 0) {
+  if (!fullName) return;
+
+  const [firstName, ...rest] = fullName.split(" ");
+  const lastName = rest.join(" ");
+
+  const { data, error } = await supabase
+    .from("guestlist")
+    .select("tags")
+    .eq("first_name", firstName)
+    .eq("last_name", lastName)
+    .limit(1);
+    console.log("test result:", { data, error });
+
+  if (error || !data || data.length === 0) {
     document.getElementById("error").classList.remove("hidden");
     return;
   }
 
-  if (events.includes("temple")) {
+  const tags = data[0].tags
+    .split("|")
+    .map(t => t.trim().toLowerCase());
+
+  if (tags.includes("temple")) {
     document.getElementById("templeWedding").classList.remove("hidden");
   }
 
-  if (events.includes("chapel")) {
+  if (tags.includes("chapel")) {
     document.getElementById("chapelWedding").classList.remove("hidden");
   }
 }
-

@@ -13,9 +13,10 @@
     <a href="/index.html">Home</a>
     <a href="/schedule.html" class="active">Schedule</a>
     <a href="https://withjoy.com/akshay-and-abigail/rsvp" target="_blank">RSVP</a>
-    <a href="https://withjoy.com/akshay-and-abigail/registry" target="_blank">Registry</a>
+    <a href="https://withjoy.com/akshay-and-abigail/registry" class="hidden" target="_blank">Registry</a>
   </nav>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <main>
     <h1>CHECK YOUR QUEST LOG</h1>
     <p>Enter your name to reveal available quests:</p>
@@ -27,24 +28,31 @@
 
     <div id="templeWedding" class="event hidden">
       <h2>TEMPLE WEDDING</h2>
-      <p><strong>Date:</strong> Sept 20, 2025 @ 10:00 AM</p>
-      <p><strong>Location:</strong> The Grand Temple of Light <br />
-        <a href="https://www.google.com/maps/place/The+Grand+Temple+of+Light" target="_blank">View on Google Maps</a>
+      <p><span class="keylabel"><strong>Date:</strong></span> October 10, 2025 @ 07:00 PM</p>
+      <p><span class="keylabel"><strong>Location:</strong></span> Hindu Temple of Atlanta <br />
+      <a href="https://maps.app.goo.gl/PgpzTVnKdQjdsCw7A" target="_blank">5851 GA-85, Riverdale, GA 30274</a>
       </p>
-      <img src="temple.jpg" alt="Temple Wedding Location" />
-      <p><strong>Dress Code:</strong> Formal or traditional</p>
-      <p><strong>Travel Info:</strong> Parking available; carpool recommended.</p>
+      <div class="iframe-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.3800953731843!2d-84.4085382!3d33.595441099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f4fc91c4e33b5d%3A0x388c8a6470b8e33b!2sHindu%20Temple%20of%20Atlanta!5e0!3m2!1sen!2sus!4v1751831670377!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p><span class="keylabel"><strong>Dress Code:</strong></span> <span class="keyword">Semi-formal</span> or <span class="keyword">traditional</span>. Slip on shoes recommended.</p>
+      <p><span class="keylabel"><strong>Travel Info:</strong></span> Parking available; carpool recommended.</p>
+      <p><strong>Please <a href="https://withjoy.com/akshay-and-abigail/rsvp" target="_blank">RSVP</a> by September 10, 2025</strong></p>
     </div>
 
     <div id="chapelWedding" class="event hidden">
       <h2>CHAPEL WEDDING</h2>
-      <p><strong>Date:</strong> Sept 22, 2025 @ 5:00 PM</p>
-      <p><strong>Location:</strong> Hyrule Garden Chapel <br />
-        <a href="https://www.google.com/maps/place/Hyrule+Garden+Chapel" target="_blank">View on Google Maps</a>
+        <p><span class="keylabel"><strong>Date:</strong></span> October 18, 2025 @ 2:00 PM</p>
+        <p><span class="keylabel"><strong>Location:</strong></span> Old Peace Chapel <br /> 
+          The Historic Daniel Boone Home <br />
+        <a href="https://maps.app.goo.gl/bDAULgRWc7txCnmz6" target="_blank">1868 Hwy F, Defiance, MO 63341</a>
       </p>
-      <img src="chapel.jpg" alt="Chapel Wedding Location" />
-      <p><strong>Dress Code:</strong> Cocktail / semi-formal</p>
-      <p><strong>Travel Info:</strong> Free valet and rideshare drop-off.</p>
+      <div class="iframe-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3115.937352070702!2d-90.85451379999999!3d38.650320799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87decce50fcd2683%3A0x3bc5bd2dff8f0333!2sOld%20Peace%20Chapel!5e0!3m2!1sen!2sus!4v1751832167917!5m2!1sen!2sus"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p><span class="keylabel"><strong>Dress Code:</strong></span> <span class="keyword">Cocktail / Semi-formal</span>. The area is mostly grass and gravel so hold off on those stilletos.</p>
+      <p><span class="keylabel"><strong>Travel Info:</strong></span> There is parking available at the site. All guests will have access to the entire historic village until 5:00 PM</p>
+      <p><strong>Please <a href="https://withjoy.com/akshay-and-abigail/rsvp" target="_blank">RSVP</a> by September 18, 2025</strong></p>
     </div>
   </main>
   <script src="schedule.js"></script>
