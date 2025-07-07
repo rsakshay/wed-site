@@ -15,6 +15,20 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function splitName(fullNameInput) {
+  const parts = fullNameInput.trim().toLowerCase().split(/\s+/);
+  
+  if (parts.length === 0) return { firstName: "", lastName: "" };
+
+  const lastName = parts.pop(); // take the last part
+  const firstName = parts.join(" "); // everything before that
+
+  return {
+    firstName,
+    lastName
+  };
+}
+
 async function checkSchedule() {
   const nameInput = document.getElementById("guestName");
   const fullName = nameInput.value.trim().toLowerCase();
@@ -25,14 +39,13 @@ async function checkSchedule() {
 
   if (!fullName) return;
 
-  const [firstName, ...rest] = fullName.split(" ");
-  const lastName = rest.join(" ");
+  const name = splitName(fullName)
 
   const { data, error } = await supabase
     .from("guestlist")
     .select("tags")
-    .eq("first_name", firstName)
-    .eq("last_name", lastName)
+    .eq("first_name", name.firstName)
+    .eq("last_name", name.lastName)
     .limit(1);
     console.log("test result:", { data, error });
 
