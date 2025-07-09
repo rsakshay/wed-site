@@ -159,6 +159,7 @@ input[type="text"], button {
   font-family: 'Press Start 2P', monospace;
   font-size: 0.7rem;
   margin-top: 1rem;
+  width: 300px;
 }
 
 input[type="text"] {
