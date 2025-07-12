@@ -31,11 +31,21 @@ function splitName(fullNameInput) {
 
 async function checkSchedule() {
   const nameInput = document.getElementById("guestName");
-  const fullName = nameInput.value.trim().toLowerCase();
+  const inputName = nameInput.value.trim();
+  const fullName = inputName.toLowerCase();
 
-  document.getElementById("error").classList.add("hidden");
-  document.getElementById("templeWedding").classList.add("hidden");
-  document.getElementById("chapelWedding").classList.add("hidden");
+  const errorEl = document.getElementById("error");
+  const templeWeddingEl = document.getElementById("templeWedding");
+  const chapelWeddingEl = document.getElementById("chapelWedding");
+  const enterNameEl = document.getElementById("enterName");
+  const helloNameEl = document.getElementById("helloName");
+  const RSVPButtonEl = document.getElementById("RSVPButton");
+
+  errorEl.classList.add("hidden");
+  templeWeddingEl.classList.add("hidden");
+  chapelWeddingEl.classList.add("hidden");
+  enterNameEl.classList.remove("hidden");
+  helloNameEl.classList.add("hidden");
 
   if (!fullName) return;
 
@@ -54,15 +64,21 @@ async function checkSchedule() {
     return;
   }
 
+  enterNameEl.classList.add("hidden");
+  RSVPButtonEl.classList.remove("hidden");
+  helloNameEl.classList.remove("hidden");
+  const guestNameEl = helloNameEl.querySelector(".guestName");
+  guestNameEl.textContent = `${inputName}`;
+
   const tags = data[0].tags
     .split("|")
     .map(t => t.trim().toLowerCase());
 
   if (tags.includes("temple")) {
-    document.getElementById("templeWedding").classList.remove("hidden");
+    templeWeddingEl.classList.remove("hidden");
   }
 
   if (tags.includes("chapel")) {
-    document.getElementById("chapelWedding").classList.remove("hidden");
+    chapelWeddingEl.classList.remove("hidden");
   }
 }

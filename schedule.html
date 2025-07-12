@@ -12,21 +12,28 @@
   <nav>
     <a href="./index.html">Home</a>
     <a href="./schedule.html" class="active">Schedule</a>
-    <a href="https://withjoy.com/akshay-and-abigail/rsvp" target="_blank">RSVP</a>
+    <a id="RSVPButton" href="https://withjoy.com/akshay-and-abigail/rsvp" class="hidden" target="_blank">RSVP</a>
     <a href="https://withjoy.com/akshay-and-abigail/registry" class="hidden" target="_blank">Registry</a>
   </nav>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <main>
     <h1>QUEST BOARD</h1>
-    <p>REGISTER YOUR NAME AND PUSH START BUTTON:</p>
+    <div id="enterName">
+      <p>REGISTER YOUR NAME AND PUSH START BUTTON:</p>
 
-      <input type="text" id="guestName" placeholder="<first_name> <last_name>" />
-    <br />
-    <subp>Please use your first and last name.</subp>
-    <br />
-    <button onclick="checkSchedule()">Start</button>
-    <div id="error" class="error hidden">Name not found. Please reach out to us if you are having issues.</div>
+        <input type="text" id="guestName" placeholder="<first_name> <last_name>" />
+      <br />
+      <subp>Please use your first and last name.</subp>
+      <br />
+      <button onclick="checkSchedule()">Start</button>
+      <div id="error" class="error hidden">Name not found. Please reach out to us if you are having issues.</div>
+    </div>
+
+    <div id="helloName" class="hidden">
+      <h2 id="greetingText">Hi, <span class="guestName">First Last</span>!</h2>
+      <p>Please find your schedule below and don't forget to RSVP!</p>
+    </div>
 
     <div id="templeWedding" class="event hidden">
       <h2>TEMPLE WEDDING</h2>
